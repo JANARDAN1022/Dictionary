@@ -10,11 +10,17 @@ const Meaning = (props) => {
       <input value={word} onChange={(e) => setWord(e.target.value)} onKeyDown={props.onKeyDown} className='input' type="text" placeholder='Search for a Word' />
       <div className='result'>
         <p>YOUR WORD : <span className='span'>{word}</span></p>
-        <p>MEANING : <span className='span2'>{result}</span></p>
+        <p>MEANING : <span className='span2'>
+          {result.entries && result.entries[0] && result.entries[0].sense && result.entries[0].sense[0] 
+            ? result.entries[0].sense[0].definition 
+            : 'No definition found'
+          }
+        </span></p>
       </div>
     </div>
-  );
+  )
 };
+
 
 export default Meaning;
 
